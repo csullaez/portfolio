@@ -1,0 +1,64 @@
+---
+import { skills } from '../../data/portfolio';
+import type { SkillCategory } from '../../types/portfolio';
+
+const categories: { key: SkillCategory; label: string; icon: string; color: string }[] = [
+  { key: 'backend', label: 'Backend', icon: '⚙️', color: 'indigo' },
+  { key: 'frontend', label: 'Frontend', icon: '🎨', color: 'purple' },
+  { key: 'tools', label: 'DevOps & Tools', icon: '🔧', color: 'emerald' }
+];
+
+const getSkillsByCategory = (category: SkillCategory) => 
+  skills.filter(s => s.category === category);
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { bg: string; text: string; bar: string }> = {
+    indigo: { bg: 'bg-indigo-100 dark:bg-indigo-900/50', text: 'text-indigo-700 dark:text-indigo-300', bar: 'bg-indigo-600' },
+    purple: { bg: 'bg-purple-100 dark:bg-purple-900/50', text: 'text-purple-700 dark:text-purple-300', bar: 'bg-purple-600' },
+    emerald: { bg: 'bg-emerald-100 dark:bg-emerald-900/50', text: 'text-emerald-700 dark:text-emerald-300', bar: 'bg-emerald-600' }
+  };
+  return colors[color] || colors.indigo;
+};
+---
+
+<section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Habilidades</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {categories.map((category) => {
+        const categorySkills = getSkillsByCategory(category.key);
+        const colorClasses = getColorClasses(category.color);
+        
+        return (
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
+            <div class={`w-14 h-14 ${colorClasses.bg} ${colorClasses.text} rounded-xl flex items-center justify-center text-2xl mb-6`}>
+              {category.icon}
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">{category.label}</h3>
+
+            <div class="space-y-4">
+              {categorySkills.map((skill) => (
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-medium text-slate-700 dark:text-slate-200 text-sm">{skill.name}</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">{skill.level}%</span>
+                  </div>
+                  <div class="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div 
+                      class={`h-full ${colorClasses.bar} rounded-full transition-all duration-500`}
+                      style={`width: ${skill.level}%`}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
