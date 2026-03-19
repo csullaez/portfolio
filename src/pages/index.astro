@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/astro/Hero.astro';
+import About from '../components/astro/About.astro';
+import ProjectsSection from '../components/react/ProjectsSection';
+import Skills from '../components/astro/Skills.astro';
+import Experience from '../components/astro/Experience.astro';
+import Education from '../components/astro/Education.astro';
+import ContactSection from '../components/react/ContactSection';
+import { personalInfo, projects } from '../data/portfolio';
+---
+
+<Layout>
+  <Hero />
+  <About />
+  <ProjectsSection projects={projects} client:visible />
+  <Skills />
+  <Experience />
+  <Education />
+  <ContactSection 
+    email={personalInfo.email} 
+    phone={personalInfo.phone}
+    location={personalInfo.location}
+    socialLinks={personalInfo.socialLinks}
+    cvUrl={personalInfo.cvUrl}
+    client:visible
+  />
+</Layout>
