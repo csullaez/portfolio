@@ -12,13 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
+    "@astrojs/react": "^5.0.4",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.0.6",
+    "astro": "^6.1.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
