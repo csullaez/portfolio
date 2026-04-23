@@ -24,7 +24,8 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'REST APIs', 'Maps'],
     demoUrl: '',
     repoUrl: '',
-    featured: true
+    featured: true,
+    image: '/portfolio/images/seprec.webp'
   },
   {
     id: '2',
@@ -34,7 +35,8 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeScript', 'Python', 'PostgreSQL', 'Docker', 'MUI'],
     demoUrl: '',
     repoUrl: '',
-    featured: true
+    featured: true,
+    image: '/portfolio/images/sina.webp'
   },
   {
     id: '3',
@@ -44,7 +46,8 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Docker', 'MUI'],
     demoUrl: '',
     repoUrl: '',
-    featured: true
+    featured: true,
+    image: '/portfolio/images/baioc.webp'
   },
   {
     id: '4',
@@ -54,9 +57,10 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeORM', 'PostgreSQL', 'Docker', 'PM2', 'Nginx'],
     demoUrl: '',
     repoUrl: '',
-    featured: false
+    featured: false,
+    image: '/portfolio/images/appdigitales.webp'
   },
-  {
+{
     id: '5',
     title: 'SIBAI',
     description: 'Sistema Integral del Bono Anual de Indigencia con interoperabilidad gubernamental.',
@@ -64,17 +68,19 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeORM', 'PostgreSQL', 'Swagger', 'Docker'],
     demoUrl: '',
     repoUrl: '',
-    featured: false
+    featured: false,
+    image: '/portfolio/images/sibai.webp'
   },
   {
     id: '6',
     title: 'CD V3 - Ciudadanía Digital',
     description: 'Plataforma de ciudadanía digital con videollamadas mediante OpenVidu.',
-    longDescription: 'Desarrollé librerías para acceso a cámaras y micrófonos. Implementé servidor de llamadas con OpenVidu bajo arquitectura de microservicios.',
+    longDescription: 'Desarrollé librerías para acceso a cámaras y micrófono. Implementé servidor de llamadas con OpenVidu bajo arquitectura de microservicios.',
     technologies: ['Next.js', 'NestJS', 'OpenVidu', 'TypeORM', 'PostgreSQL', 'Docker'],
     demoUrl: '',
     repoUrl: '',
-    featured: false
+    featured: false,
+    image: '/portfolio/images/ciudadaniadigital.webp'
   },
   {
     id: '7',
@@ -84,7 +90,8 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'TypeORM', 'PostgreSQL', 'Swagger', 'MUI'],
     demoUrl: '',
     repoUrl: '',
-    featured: false
+    featured: false,
+    image: '/portfolio/images/capibara.webp'
   },
   {
     id: '8',
@@ -94,7 +101,8 @@ export const projects: Project[] = [
     technologies: ['PHP', 'CodeIgniter', 'REST APIs', 'RabbitMQ', 'Python', 'Maps'],
     demoUrl: '',
     repoUrl: '',
-    featured: false
+    featured: false,
+    image: '/portfolio/images/appdigitales.webp'
   }
 ];
 

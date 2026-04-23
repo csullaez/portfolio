@@ -14,7 +14,7 @@ import { experience } from '../../data/portfolio';
 
       <div class="space-y-8">
         {experience.map((exp, index) => (
-          <div key={exp.id} class={`relative flex flex-col md:flex-row gap-6 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+          <div class={`relative flex flex-col md:flex-row gap-6 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
             <div class="flex-1 md:pr-12">
               <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-slate-100 dark:border-slate-700">
                 <div class="flex items-center gap-2 mb-3 flex-wrap">
@@ -30,8 +30,8 @@ import { experience } from '../../data/portfolio';
                 <p class="text-indigo-600 dark:text-indigo-400 font-medium mb-4">{exp.company}</p>
                 
                 <ul class="space-y-2">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i} class="text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2">
+                  {exp.achievements.map((achievement) => (
+                    <li class="text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2">
                       <span class="text-indigo-600 dark:text-indigo-400 mt-0.5 shrink-0">•</span>
                       {achievement}
                     </li>
@@ -41,7 +41,7 @@ import { experience } from '../../data/portfolio';
                 {exp.technologies.length > 0 && (
                   <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
                     {exp.technologies.slice(0, 6).map((tech) => (
-                      <span key={tech} class="px-2 py-1 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded font-medium">
+                      <span class="px-2 py-1 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded font-medium">
                         {tech}
                       </span>
                     ))}
