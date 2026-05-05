@@ -87,7 +87,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/0 to-purple-600/0 group-hover:from-indigo-600/50 group-hover:to-purple-600/50 transition-all duration-300" />
                   </>
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600" />
@@ -97,11 +97,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     {project.featured ? "🚀" : "💻"}
                   </span>
                 )}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="px-4 py-2 bg-white/90 dark:bg-slate-800/90 text-slate-900 dark:text-white rounded-lg font-medium text-sm shadow-lg backdrop-blur-sm">
-                    Ver detalles
-                  </span>
-                </div>
               </div>
 
               <div className="p-6">
