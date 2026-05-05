@@ -33,7 +33,7 @@ export const projects: Project[] = [
     description: 'Sistema de Información Normativa Autónoma con OCR y procesamiento de lenguaje natural.',
     longDescription: 'Lideré y participé en la creación de base de datos. Implementé Python para OCR de archivos PDF escaneados con limpieza mediante PLN. Desarrollo con SSR para renderizado dinámico de contenidos.',
     technologies: ['Next.js', 'NestJS', 'TypeScript', 'Python', 'PostgreSQL', 'Docker', 'MUI'],
-    demoUrl: '',
+    demoUrl: 'https://sina.sea.gob.bo/inicio',
     repoUrl: '',
     featured: true,
     image: '/portfolio/images/sina.webp'
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     description: 'Biblioteca del Autogobierno Indígenas Originario Campesino con motor de trámites y formularios dinámicos.',
     longDescription: 'Lideré equipo mediante asignación de tareas, code reviews y aprobación de merge requests. Desarrollé algoritmo de asignación de ítems según carga de trabajo de técnicos.',
     technologies: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Docker', 'MUI'],
-    demoUrl: '',
+    demoUrl: 'https://baioc.sea.gob.bo/inicio',
     repoUrl: '',
     featured: true,
     image: '/portfolio/images/baioc.webp'
@@ -58,7 +58,8 @@ export const projects: Project[] = [
     demoUrl: '',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/appdigitales.webp'
+    // image: '/portfolio/images/appdigitales.webp'
+    image: ''
   },
 {
     id: '5',
@@ -66,7 +67,7 @@ export const projects: Project[] = [
     description: 'Sistema Integral del Bono Anual de Indigencia con interoperabilidad gubernamental.',
     longDescription: 'Lideré equipo desde diseño de proyecto hasta integración con Ministerio de Economía y IBC para gestión de usuarios beneficiarios del bono.',
     technologies: ['Next.js', 'NestJS', 'TypeORM', 'PostgreSQL', 'Swagger', 'Docker'],
-    demoUrl: '',
+    demoUrl: 'https://sibai.ibc.gob.bo/login',
     repoUrl: '',
     featured: false,
     image: '/portfolio/images/sibai.webp'
@@ -77,7 +78,7 @@ export const projects: Project[] = [
     description: 'Plataforma de ciudadanía digital con videollamadas mediante OpenVidu.',
     longDescription: 'Desarrollé librerías para acceso a cámaras y micrófono. Implementé servidor de llamadas con OpenVidu bajo arquitectura de microservicios.',
     technologies: ['Next.js', 'NestJS', 'OpenVidu', 'TypeORM', 'PostgreSQL', 'Docker'],
-    demoUrl: '',
+    demoUrl: 'https://ciudadaniadigital.bo/home',
     repoUrl: '',
     featured: false,
     image: '/portfolio/images/ciudadaniadigital.webp'
@@ -88,7 +89,7 @@ export const projects: Project[] = [
     description: 'Dashboard interactivo para gestión de permisos, horarios y bitácoras de usuarios.',
     longDescription: 'Diseñé dashboard con componentes MUI para visualización de permisos conforme al Reglamento Interno del Personal.',
     technologies: ['Next.js', 'NestJS', 'TypeORM', 'PostgreSQL', 'Swagger', 'MUI'],
-    demoUrl: '',
+    demoUrl: 'https://capibara.agetic.gob.bo/login',
     repoUrl: '',
     featured: false,
     image: '/portfolio/images/capibara.webp'
@@ -99,7 +100,7 @@ export const projects: Project[] = [
     description: 'Aplicación de control y visualización de rutas de transporte con procesamiento asíncrono.',
     longDescription: 'Finalicé desarrollo de aplicación PHP/CodeIgniter. Integré mapas interactivos, procesamiento de archivos KMZ con RabbitMQ y firma digital.',
     technologies: ['PHP', 'CodeIgniter', 'REST APIs', 'RabbitMQ', 'Python', 'Maps'],
-    demoUrl: '',
+    demoUrl: 'https://appdigitales.att.gob.bo/',
     repoUrl: '',
     featured: false,
     image: '/portfolio/images/appdigitales.webp'
