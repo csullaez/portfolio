@@ -2,6 +2,40 @@
 import { skills } from '../../data/portfolio';
 import type { SkillCategory } from '../../types/portfolio';
 
+const iconMap: Record<string, string> = {
+  'JavaScript': 'devicon-javascript-plain',
+  'TypeScript': 'devicon-typescript-plain',
+  'Python': 'devicon-python-plain',
+  'Node.js': 'devicon-nodejs-plain',
+  'NestJS': 'devicon-nestjs-plain',
+  'Express.js': 'devicon-express-original',
+  'PostgreSQL': 'devicon-postgresql-plain',
+  'MySQL': 'devicon-mysql-plain',
+  'MongoDB': 'devicon-mongodb-plain',
+  'TypeORM': 'deviconsequelize-plain',
+  'REST APIs': 'devicon-azuresqldatabase-plain',
+  'Microservicios': 'devicon-docker-plain',
+  'Next.js': 'devicon-nextjs-plain',
+  'React': 'devicon-react-original',
+  'Vue.js': 'devicon-vuejs-plain',
+  'Material UI': 'devicon-materialui-plain',
+  'Vuetify': 'devicon-vuetify-plain',
+  'OpenVidu': 'devicon-webrtc-plain',
+  'Docker': 'devicon-docker-plain',
+  'Nginx': 'devicon-nginx-plain',
+  'PM2': 'devicon-linux-plain',
+  'Linux': 'devicon-linux-plain',
+  'CI/CD': 'devicon-jenkins-plain',
+  'Git': 'devicon-git-plain',
+  'Swagger': 'devicon-swagger-plain',
+  'Jest': 'devicon-jest-plain',
+  'RabbitMQ': 'devicon-rabbitmq-plain'
+};
+
+const getIcon = (skillName: string): string => {
+  return iconMap[skillName] || 'devicon-code-plain';
+};
+
 const categories: { key: SkillCategory; label: string; icon: string; color: string }[] = [
   { key: 'backend', label: 'Backend', icon: '⚙️', color: 'indigo' },
   { key: 'frontend', label: 'Frontend', icon: '🎨', color: 'purple' },
@@ -44,7 +78,10 @@ const getColorClasses = (color: string) => {
               {categorySkills.map((skill) => (
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <span class="font-medium text-slate-700 dark:text-slate-200 text-sm">{skill.name}</span>
+                    <span class="flex items-center gap-2 font-medium text-slate-700 dark:text-slate-200 text-sm">
+                      <i class={`${getIcon(skill.name)} text-lg`}></i>
+                      {skill.name}
+                    </span>
                     <span class="text-xs text-slate-500 dark:text-slate-400">{skill.level}%</span>
                   </div>
                   <div class="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">

@@ -5,6 +5,45 @@ interface ProjectsSectionProps {
   projects: Project[];
 }
 
+const iconMap: Record<string, string> = {
+  'JavaScript': 'devicon-javascript-plain',
+  'TypeScript': 'devicon-typescript-plain',
+  'Python': 'devicon-python-plain',
+  'Node.js': 'devicon-nodejs-plain',
+  'NestJS': 'devicon-nestjs-plain',
+  'Express.js': 'devicon-express-original',
+  'PostgreSQL': 'devicon-postgresql-plain',
+  'MySQL': 'devicon-mysql-plain',
+  'MongoDB': 'devicon-mongodb-plain',
+  'TypeORM': 'devicon-sequelize-plain',
+  'REST APIs': 'devicon-azuresqldatabase-plain',
+  'Maps': 'devicon-googlemaps-plain',
+  'MUI': 'devicon-materialui-plain',
+  'Docker': 'devicon-docker-plain',
+  'OCR': 'devicon-tesseract-plain',
+  'PLN': 'devicon-python-plain',
+  'Nodemailer': 'devicon-npm-original-wordmark',
+  'OpenVidu': 'devicon-webrtc-plain',
+  'WebRTC': 'devicon-webrtc-plain',
+  'Swagger': 'devicon-swagger-plain',
+  'PHP': 'devicon-php-plain',
+  'CodeIgniter': 'devicon-codeigniter-plain',
+  'RabbitMQ': 'devicon-rabbitmq-plain',
+  'Vue.js': 'devicon-vuejs-plain',
+  'Vuetify': 'devicon-vuetify-plain',
+  'Next.js': 'devicon-nextjs-plain',
+  'React': 'devicon-react-original',
+  'PM2': 'devicon-linux-plain',
+  'Nginx': 'devicon-nginx-plain',
+  'Linux': 'devicon-linux-plain',
+  'Jest': 'devicon-jest-plain',
+  'CI/CD': 'devicon-jenkins-plain'
+};
+
+const getIcon = (techName: string): string => {
+  return iconMap[techName] || 'devicon-code-plain';
+};
+
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -306,8 +345,9 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 text-sm rounded-full font-medium"
+                        className="flex items-center gap-1.5 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 text-sm rounded-full font-medium"
                       >
+                        <i className={`${getIcon(tech)} text-base`}></i>
                         {tech}
                       </span>
                     ))}
