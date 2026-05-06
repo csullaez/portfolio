@@ -69,3 +69,71 @@ html.dark {
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-out forwards;
 }
+
+/* Devicon colored icons */
+i[class^="devicon-"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.devicon-javascript-plain { color: #F7DF1E; }
+.devicon-typescript-plain { color: #3178C6; }
+.devicon-python-plain { color: #3776AB; }
+.devicon-nodejs-plain { color: #339933; }
+.devicon-nestjs-plain { color: #E0234E; }
+.devicon-express-original { color: #000000; }
+.devicon-postgresql-plain { color: #336791; }
+.devicon-mysql-plain { color: #4479A1; }
+.devicon-mongodb-plain { color: #47A248; }
+.devicon-sequelize-plain { color: #52B0E7; }
+.devicon-azuresqldatabase-plain { color: #0078D4; }
+.devicon-googlemaps-plain { color: #4285F4; }
+.devicon-materialui-plain { color: #0079C1; }
+.devicon-docker-plain { color: #2496ED; }
+.devicon-tesseract-plain { color: #5D4F85; }
+.devicon-webrtc-plain { color: #000000; }
+.devicon-swagger-plain { color: #85EA2D; }
+.devicon-php-plain { color: #777BB4; }
+.devicon-codeigniter-plain { color: #DD4646; }
+.devicon-rabbitmq-plain { color: #F60F1A; }
+.devicon-vuejs-plain { color: #4FC08D; }
+.devicon-vuetify-plain { color: #1867C7; }
+.devicon-nextjs-plain { color: #000000; }
+.devicon-react-original { color: #61DAFB; }
+.devicon-linux-plain { color: #FCC624; }
+.devicon-nginx-plain { color: #009639; }
+.devicon-jenkins-plain { color: #D24939; }
+.devicon-jest-plain { color: #C21325; }
+.devicon-code-plain { color: #6c757d; }
+.devicon-npm-original-wordmark { color: #CB3837; }
+.devicon-arduino-plain { color: #00979D; }
+.devicon-azure-plain { color: #0078D4; }
+.devicon-babel-plain { color: #F9DC3C; }
+.devicon-csharp-plain { color: #68217A; }
+.devicon-css3-plain { color: #1572B6; }
+.devicon-docker-compose-plain { color: #2496ED; }
+.devicon-electron-plain { color: #47848F; }
+.devicon-firebase-plain { color: #FFCA28; }
+.devicon-git-plain { color: #F05032; }
+.devicon-github-plain { color: #181717; }
+.devicon-gitlab-plain { color: #FC6D26; }
+.devicon-go-plain { color: #00ADD8; }
+.devicon-gradle-plain { color: #02303A; }
+.devicon-heroku-plain { color: #430098; }
+.devicon-html5-plain { color: #E34F26; }
+.devicon-java-plain { color: #B07219; }
+.devicon-laravel-plain { color: #FF2D20; }
+.devicon-microsoftsqlserver-plain { color: #CC2927; }
+.devicon-redis-plain { color: #DC382D; }
+.devicon-sass-original { color: #CC6699; }
+.devicon-spring-plain { color: #6DB33F; }
+.devicon-svelte-plain { color: #FF3E00; }
+.devicon-tailwindcss-plain { color: #06B6D4; }
+.devicon-typescript-plain { color: #3178C6; }
+.devicon-ubuntu-plain { color: #E95420; }
+.devicon-webpack-plain { color: #8DD6F9; }
+.devicon-wordpress-plain { color: #21759B; }

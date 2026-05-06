@@ -147,6 +147,23 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                   {project.description}
                 </p>
 
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, 5).map((tech) => (
+                    <div
+                      key={tech}
+                      className="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-lg"
+                      title={tech}
+                    >
+                      <i className={`${getIcon(tech)} text-sm`}></i>
+                    </div>
+                  ))}
+                  {project.technologies.length > 5 && (
+                    <div className="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-lg text-xs text-slate-500 dark:text-slate-400">
+                      +{project.technologies.length - 5}
+                    </div>
+                  )}
+                </div>
+
                 <div className="flex justify-center gap-3">
                   <button
                     onClick={(e) => {
