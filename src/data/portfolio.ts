@@ -36,7 +36,7 @@ export const projects: Project[] = [
     demoUrl: 'https://sina.sea.gob.bo/inicio',
     repoUrl: '',
     featured: true,
-    image: '/portfolio/images/sina.webp'
+    image: '/images/sina.webp'
   },
   {
     id: '3',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     demoUrl: 'https://baioc.sea.gob.bo/inicio',
     repoUrl: '',
     featured: true,
-    image: '/portfolio/images/baioc.webp'
+    image: '/images/baioc.webp'
   },
   {
     id: '4',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     demoUrl: 'https://sibai.ibc.gob.bo/login',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/sibai.webp'
+    image: '/images/sibai.webp'
   },
   {
     id: '6',
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     demoUrl: 'https://ciudadaniadigital.bo/home',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/ciudadaniadigital.webp'
+    image: '/images/ciudadaniadigital.webp'
   },
   {
     id: '7',
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     demoUrl: 'https://capibara.agetic.gob.bo/login',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/capibara.webp'
+    image: '/images/capibara.webp'
   },
   {
     id: '8',
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     demoUrl: 'https://appdigitales.att.gob.bo/',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/appdigitales.webp'
+    image: '/images/appdigitales.webp'
   },
   {
     id: '9',
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     demoUrl: '',
     repoUrl: '',
     featured: false,
-    image: '/portfolio/images/seprec.webp'
+    image: '/images/seprec.webp'
   },
   {
     id: '10',
@@ -129,33 +129,33 @@ export const projects: Project[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: 'JavaScript', level: 95, category: 'backend' },
-  { name: 'TypeScript', level: 95, category: 'backend' },
-  { name: 'Python', level: 85, category: 'backend' },
-  { name: 'Node.js', level: 95, category: 'backend' },
-  { name: 'NestJS', level: 90, category: 'backend' },
-  { name: 'Express.js', level: 90, category: 'backend' },
-  { name: 'PostgreSQL', level: 90, category: 'backend' },
-  { name: 'MySQL', level: 80, category: 'backend' },
-  { name: 'MongoDB', level: 70, category: 'backend' },
-  { name: 'TypeORM', level: 85, category: 'backend' },
-  { name: 'REST APIs', level: 95, category: 'backend' },
-  { name: 'Microservicios', level: 85, category: 'backend' },
-  { name: 'Next.js', level: 95, category: 'frontend' },
-  { name: 'React', level: 90, category: 'frontend' },
-  { name: 'Vue.js', level: 80, category: 'frontend' },
-  { name: 'Material UI', level: 90, category: 'frontend' },
-  { name: 'Vuetify', level: 75, category: 'frontend' },
-  { name: 'OpenVidu', level: 80, category: 'frontend' },
-  { name: 'Docker', level: 85, category: 'tools' },
-  { name: 'Nginx', level: 80, category: 'tools' },
-  { name: 'PM2', level: 85, category: 'tools' },
-  { name: 'Linux', level: 80, category: 'tools' },
-  { name: 'CI/CD', level: 75, category: 'tools' },
-  { name: 'Git', level: 90, category: 'tools' },
-  { name: 'Swagger', level: 85, category: 'tools' },
-  { name: 'Jest', level: 70, category: 'tools' },
-  { name: 'RabbitMQ', level: 75, category: 'tools' }
+  { name: 'JavaScript', category: 'backend' },
+  { name: 'TypeScript', category: 'backend' },
+  { name: 'Python', category: 'backend' },
+  { name: 'Node.js', category: 'backend' },
+  { name: 'NestJS', category: 'backend' },
+  { name: 'Express.js', category: 'backend' },
+  { name: 'PostgreSQL', category: 'backend' },
+  { name: 'MySQL', category: 'backend' },
+  { name: 'MongoDB', category: 'backend' },
+  { name: 'TypeORM', category: 'backend' },
+  { name: 'REST APIs', category: 'backend' },
+  { name: 'Microservicios', category: 'backend' },
+  { name: 'Next.js', category: 'frontend' },
+  { name: 'React', category: 'frontend' },
+  { name: 'Vue.js', category: 'frontend' },
+  { name: 'Material UI', category: 'frontend' },
+  { name: 'Vuetify', category: 'frontend' },
+  { name: 'OpenVidu', category: 'frontend' },
+  { name: 'Docker', category: 'tools' },
+  { name: 'Nginx', category: 'tools' },
+  { name: 'PM2', category: 'tools' },
+  { name: 'Linux', category: 'tools' },
+  { name: 'CI/CD', category: 'tools' },
+  { name: 'Git', category: 'tools' },
+  { name: 'Swagger', category: 'tools' },
+  { name: 'Jest', category: 'tools' },
+  { name: 'RabbitMQ', category: 'tools' }
 ];
 
 export const education: Education[] = [

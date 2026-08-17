@@ -1,97 +1,57 @@
 ---
 import { skills } from '../../data/portfolio';
 import type { SkillCategory } from '../../types/portfolio';
+import { getTechIcon } from '../../lib/icons';
+import SectionHeader from './SectionHeader.astro';
 
-const iconMap: Record<string, string> = {
-  'JavaScript': 'devicon-javascript-plain',
-  'TypeScript': 'devicon-typescript-plain',
-  'Python': 'devicon-python-plain',
-  'Node.js': 'devicon-nodejs-plain',
-  'NestJS': 'devicon-nestjs-plain',
-  'Express.js': 'devicon-express-original',
-  'PostgreSQL': 'devicon-postgresql-plain',
-  'MySQL': 'devicon-mysql-plain',
-  'MongoDB': 'devicon-mongodb-plain',
-  'TypeORM': 'deviconsequelize-plain',
-  'REST APIs': 'devicon-azuresqldatabase-plain',
-  'Microservicios': 'devicon-docker-plain',
-  'Next.js': 'devicon-nextjs-plain',
-  'React': 'devicon-react-original',
-  'Vue.js': 'devicon-vuejs-plain',
-  'Material UI': 'devicon-materialui-plain',
-  'Vuetify': 'devicon-vuetify-plain',
-  'OpenVidu': 'devicon-webrtc-plain',
-  'Docker': 'devicon-docker-plain',
-  'Nginx': 'devicon-nginx-plain',
-  'PM2': 'devicon-linux-plain',
-  'Linux': 'devicon-linux-plain',
-  'CI/CD': 'devicon-jenkins-plain',
-  'Git': 'devicon-git-plain',
-  'Swagger': 'devicon-swagger-plain',
-  'Jest': 'devicon-jest-plain',
-  'RabbitMQ': 'devicon-rabbitmq-plain'
-};
-
-const getIcon = (skillName: string): string => {
-  return iconMap[skillName] || 'devicon-code-plain';
-};
-
-const categories: { key: SkillCategory; label: string; icon: string; color: string }[] = [
-  { key: 'backend', label: 'Backend', icon: '⚙️', color: 'indigo' },
-  { key: 'frontend', label: 'Frontend', icon: '🎨', color: 'purple' },
-  { key: 'tools', label: 'DevOps & Tools', icon: '🔧', color: 'emerald' }
+const categories: { key: SkillCategory; label: string; icon: string; accent: string }[] = [
+  { key: 'backend', label: 'Backend', icon: 'devicon-nodejs-plain', accent: '#4f46e5' },
+  { key: 'frontend', label: 'Frontend', icon: 'devicon-react-original', accent: '#38bdf8' },
+  { key: 'tools', label: 'DevOps & Tools', icon: 'devicon-docker-plain', accent: '#10b981' }
 ];
 
-const getSkillsByCategory = (category: SkillCategory) => 
-  skills.filter(s => s.category === category);
-
-const getColorClasses = (color: string) => {
-  const colors: Record<string, { bg: string; text: string; bar: string }> = {
-    indigo: { bg: 'bg-indigo-100 dark:bg-indigo-900/50', text: 'text-indigo-700 dark:text-indigo-300', bar: 'bg-indigo-600' },
-    purple: { bg: 'bg-purple-100 dark:bg-purple-900/50', text: 'text-purple-700 dark:text-purple-300', bar: 'bg-purple-600' },
-    emerald: { bg: 'bg-emerald-100 dark:bg-emerald-900/50', text: 'text-emerald-700 dark:text-emerald-300', bar: 'bg-emerald-600' }
-  };
-  return colors[color] || colors.indigo;
-};
+const getSkillsByCategory = (category: SkillCategory) =>
+  skills.filter((s) => s.category === category);
 ---
 
-<section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+<section id="skills" class="py-24 bg-slate-50 dark:bg-[#0b0b0f] transition-colors duration-300">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Habilidades</h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"></div>
+    <div class="reveal">
+      <SectionHeader
+        eyebrow="// Stack"
+        title="Habilidades"
+        description="Tecnologías que domino y uso día a día para construir productos escalables."
+      />
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {categories.map((category) => {
+    <div class="grid md:grid-cols-3 gap-6">
+      {categories.map((category, index) => {
         const categorySkills = getSkillsByCategory(category.key);
-        const colorClasses = getColorClasses(category.color);
-        
         return (
-          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
-            <div class={`w-14 h-14 ${colorClasses.bg} ${colorClasses.text} rounded-xl flex items-center justify-center text-2xl mb-6`}>
-              {category.icon}
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">{category.label}</h3>
+          <div
+            class={`reveal ${index === 1 ? 'reveal-delay-1' : index === 2 ? 'reveal-delay-2' : ''}`}
+          >
+            <div class="h-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 hover:shadow-lg hover:shadow-slate-200/50 dark:hover:shadow-black/30 transition-shadow">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="w-11 h-11 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl">
+                  <i class={category.icon}></i>
+                </span>
+                <h3 class="font-display text-xl font-semibold text-slate-900 dark:text-white">
+                  {category.label}
+                </h3>
+              </div>
 
-            <div class="space-y-4">
-              {categorySkills.map((skill) => (
-                <div>
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="flex items-center gap-2 font-medium text-slate-700 dark:text-slate-200 text-sm">
-                      <i class={`${getIcon(skill.name)} text-lg`}></i>
-                      {skill.name}
-                    </span>
-                    <span class="text-xs text-slate-500 dark:text-slate-400">{skill.level}%</span>
-                  </div>
-                  <div class="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                    <div 
-                      class={`h-full ${colorClasses.bar} rounded-full transition-all duration-500`}
-                      style={`width: ${skill.level}%`}
-                    ></div>
-                  </div>
-                </div>
-              ))}
+              <div class="flex flex-wrap gap-2">
+                {categorySkills.map((skill) => (
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 text-sm font-medium hover:border-[var(--chip-accent)] transition-colors"
+                    style={`--chip-accent: ${category.accent}`}
+                  >
+                    <i class={`${getTechIcon(skill.name)} text-base`}></i>
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         );

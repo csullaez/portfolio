@@ -1,0 +1,8 @@
+import type { APIRoute } from 'astro';
+import { siteConfig } from '../lib/config';
+
+export const GET: APIRoute = () =>
+  new Response(
+    `User-agent: *\nAllow: /\n\nSitemap: ${siteConfig.url}${siteConfig.base}/sitemap-index.xml`,
+    { headers: { 'Content-Type': 'text/plain; charset=utf-8' } }
+  );

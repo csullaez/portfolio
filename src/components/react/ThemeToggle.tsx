@@ -38,12 +38,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-14 h-7 bg-slate-200 dark:bg-slate-700 rounded-full p-1 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      className="relative w-14 h-7 bg-slate-200 dark:bg-slate-700 rounded-full p-1 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-accent"
       aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
     >
       <div
         className={`w-5 h-5 rounded-full shadow-md transform transition-all duration-200 flex items-center justify-center ${
-          isDark ? 'translate-x-7 bg-indigo-600' : 'translate-x-0 bg-white'
+          isDark ? 'translate-x-7 bg-accent' : 'translate-x-0 bg-white'
         }`}
       >
         {isDark ? (

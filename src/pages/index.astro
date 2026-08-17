@@ -7,7 +7,8 @@ import Skills from '../components/astro/Skills.astro';
 import Experience from '../components/astro/Experience.astro';
 import Education from '../components/astro/Education.astro';
 import ContactSection from '../components/react/ContactSection';
-import { personalInfo, projects } from '../data/portfolio';
+import { personalInfo } from '../lib/config';
+import { projects } from '../data/portfolio';
 ---
 
 <Layout>
@@ -17,8 +18,8 @@ import { personalInfo, projects } from '../data/portfolio';
   <Skills />
   <Experience />
   <Education />
-  <ContactSection 
-    email={personalInfo.email} 
+  <ContactSection
+    email={personalInfo.email}
     phone={personalInfo.phone}
     location={personalInfo.location}
     socialLinks={personalInfo.socialLinks}
