@@ -16,6 +16,7 @@
   "dependencies": {
     "@astrojs/react": "^5.0.4",
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^10.0.8",
     "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@fontsource-variable/manrope": "^5.3.0",
@@ -25,6 +26,7 @@
     "astro": "^6.1.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "resend": "^6.20.0",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {

@@ -18,8 +18,7 @@ interface FormData {
 
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
-const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || '';
-const keyConfigured = WEB3FORMS_KEY && WEB3FORMS_KEY !== 'tu_access_key_aqui';
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
 const inputBase =
   'w-full px-4 py-3 rounded-lg border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15';
@@ -34,7 +33,6 @@ export default function ContactSection({ email, phone, location, socialLinks, cv
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [sentVia, setSentVia] = useState<'web3forms' | 'mailto' | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validateForm = (): boolean => {
@@ -61,45 +59,26 @@ export default function ContactSection({ email, phone, location, socialLinks, cv
     e.preventDefault();
     if (!validateForm()) return;
 
-    if (!keyConfigured) {
-      const subject = encodeURIComponent(formData.subject);
-      const body = encodeURIComponent(
-        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      );
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-      setSentVia('mailto');
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      return;
-    }
-
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`${BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          from_name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to: email
-        })
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok && data.success) {
         setSubmitted(true);
-        setSentVia('web3forms');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setSubmitError(
           data.message || 'Hubo un problema al enviar el mensaje. Intenta de nuevo.'
         );
+        if (data.errors) setErrors(data.errors);
       }
     } catch {
       setSubmitError('Hubo un problema al enviar el mensaje. Intenta de nuevo.');
@@ -152,14 +131,12 @@ export default function ContactSection({ email, phone, location, socialLinks, cv
                   ¡Mensaje enviado!
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  {sentVia === 'mailto'
-                    ? 'Se abrió tu cliente de correo con el mensaje listo para enviar.'
-                    : 'Gracias por contactarme. Te responderé lo antes posible.'}
+                  Gracias por contactarme. Te responderé lo antes posible.
                 </p>
                 <button
                   onClick={() => {
                     setSubmitted(false);
-                    setSentVia(null);
+                    setSubmitError(null);
                   }}
                   className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:bg-accent dark:hover:bg-accent dark:hover:text-white transition-colors"
                 >
@@ -174,19 +151,6 @@ export default function ContactSection({ email, phone, location, socialLinks, cv
                     className="mb-6 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800"
                   >
                     <p className="text-red-600 dark:text-red-400 text-sm">{submitError}</p>
-                  </div>
-                )}
-
-                {!keyConfigured && (
-                  <div
-                    role="alert"
-                    className="mb-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800"
-                  >
-                    <p className="text-amber-700 dark:text-amber-300 text-sm">
-                      Formulario sin{' '}
-                      <code className="font-mono text-xs">PUBLIC_WEB3FORMS_KEY</code>:{' '}
-                      el mensaje se enviará desde tu cliente de correo.
-                    </p>
                   </div>
                 )}
 

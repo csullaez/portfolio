@@ -1,11 +1,11 @@
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import type { PersonalInfo } from '../types/portfolio';
 import { personalInfo as defaultInfo } from '../data/portfolio';
 
 export const siteConfig = {
   name: import.meta.env.PUBLIC_SITE_NAME || `${defaultInfo.name} ${defaultInfo.lastName}`,
-  url: import.meta.env.PUBLIC_SITE_URL || 'https://csullaez.github.io',
+  url: import.meta.env.PUBLIC_SITE_URL || 'https://portfolio.vercel.app',
   base: (import.meta.env.BASE_URL || '/').replace(/\/+$/, '')
 };
 
@@ -16,7 +16,7 @@ function resolveAsset(path: string): string {
 
 function cvExists(cvPath?: string): boolean {
   if (!cvPath) return false;
-  const publicDir = fileURLToPath(new URL('../../public', import.meta.url));
+  const publicDir = resolve(process.cwd(), 'public');
   return existsSync(`${publicDir}${cvPath}`);
 }
 

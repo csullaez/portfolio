@@ -323,30 +323,35 @@ npm run preview
 
 ## Deployment
 
-El proyecto genera HTML estático optimizado. Opciones de despliegue:
+El proyecto genera HTML estático (SSG) con un endpoint serverless (`/api/contact`) para el formulario, por lo que se despliega en **Vercel**.
 
 ### Vercel (Recomendado)
 
-```bash
-npm install -g vercel
-vercel
-```
+1. Sube el repositorio a GitHub.
+2. En [vercel.com](https://vercel.com) → *Add New Project* → importa el repositorio.
+3. Vercel detecta Astro automáticamente (build: `npm run build`, output: `.vercel/output`).
+4. Configura las variables de entorno en **Settings → Environment Variables**:
 
-### Netlify
+| Variable | Uso | Público |
+|----------|-----|---------|
+| `PUBLIC_SITE_NAME` | Nombre del sitio (header/footer/SEO) | Sí |
+| `PUBLIC_SITE_URL` | Dominio del sitio (canonical, sitemap, OG) | Sí |
+| `PUBLIC_PERSONAL_NAME` | Nombre | Sí |
+| `PUBLIC_PERSONAL_LAST_NAME` | Apellido | Sí |
+| `PUBLIC_PERSONAL_ROLE` | Rol profesional | Sí |
+| `PUBLIC_PERSONAL_DESCRIPTION` | Descripción | Sí |
+| `PUBLIC_PERSONAL_EMAIL` | Email de contacto | Sí |
+| `PUBLIC_PERSONAL_PHONE` | Teléfono / WhatsApp | Sí |
+| `PUBLIC_PERSONAL_LOCATION` | Ubicación | Sí |
+| `PUBLIC_PERSONAL_CV_URL` | Ruta del CV en `public/` | Sí |
+| `RESEND_API_KEY` | API key de Resend (server-only) | **No** |
+| `CONTACT_EMAIL` | Destino de los correos del formulario | **No** |
 
-```bash
-npm install -g netlify-cli
-netlify deploy --prod
-```
+Las variables `RESEND_API_KEY` y `CONTACT_EMAIL` son de solo servidor (no llevan prefijo `PUBLIC_`) y se usan en el endpoint `/api/contact`.
 
-### GitHub Pages
+5. Crea tu API key en [resend.com/api-keys](https://resend.com/api-keys) (gratis).
 
-1. Configurar GitHub Actions o
-2. Subir contenido de `dist/` manualmente
-
-### Cloudflare Pages
-
-Conectar repositorio en dashboard.cloudflare.com
+> **Nota sobre Resend:** hasta verificar un dominio propio, `onboarding@resend.dev` solo permite enviar al correo con el que registraste tu cuenta. El formulario llega a tu `CONTACT_EMAIL` desde el primer día; si necesitas enviar a otros destinatarios, verifica un dominio en Resend.
 
 ---
 
